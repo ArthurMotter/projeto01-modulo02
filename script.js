@@ -41,4 +41,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 1. Seleciona o botão "Calcular"
+    const calculateButton = document.getElementById('btn-calcular');
+    console.log('Botão "Calcular" encontrado:', calculateButton);
+
+    // 2. Adiciona um evento de clique ao botão
+    calculateButton.addEventListener('click', () => {
+        
+        console.log('--- Botão "Calcular" clicado. Iniciando cálculo do pedido. ---');
+
+        let orderItems = []; 
+        let totalPrice = 0;  
+
+        // 3. Itera sobre todos os cards de itens novamente para coletar os dados
+        itemCards.forEach(card => {
+            
+            const quantity = parseInt(card.querySelector('.quantity').textContent);
+
+            // 4. Verifica se o item foi selecionado (quantidade > 0)
+            if (quantity > 0) {
+                
+                const itemName = card.querySelector('h3').textContent;
+                const itemPriceString = card.querySelector('.price').textContent; 
+                const itemPrice = parseFloat(itemPriceString.replace('R$ ', '').replace(',', '.'));
+
+                const subtotal = quantity * itemPrice;
+
+                orderItems.push({
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: quantity,
+                    subtotal: subtotal
+                });
+
+                console.log(` -> Item adicionado ao pedido: ${itemName} | Qtd: ${quantity} | Preço Unit.: ${itemPrice.toFixed(2)} | Subtotal: ${subtotal.toFixed(2)}`);
+
+                totalPrice += subtotal;
+            }
+        });
+
+        // 5. Ao final do loop, exibe o resultado final no console
+        console.log('--- Resumo do Pedido ---');
+        console.log('Itens do Pedido:', orderItems);
+        console.log(`Preço Total Calculado: R$ ${totalPrice.toFixed(2)}`);
+    });
+
 });
