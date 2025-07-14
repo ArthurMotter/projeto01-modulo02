@@ -164,6 +164,33 @@ section > p {
     margin-top: 20px;
 }
 
+#resumo-pedido h3 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#resumo-pedido p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.order-details {
+    margin-top: 10px;
+}
+
+.order-details p {
+    margin-bottom: 8px;
+}
+
+.final-price {
+    margin-top: 20px !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    color: #333 !important;
+}
+
 @media (max-width: 768px) {
     .items-grid {
         grid-template-columns: repeat(2, 1fr); 
