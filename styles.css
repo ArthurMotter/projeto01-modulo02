@@ -169,11 +169,13 @@ section > p {
     color: #333;
     margin-top: 15px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 #resumo-pedido p {
     color: #555;
     line-height: 1.6;
+    text-align: left;
 }
 
 .order-details {
